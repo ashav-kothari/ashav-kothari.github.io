@@ -47,6 +47,11 @@ const PROFILE = {
       if (!href || !link) { node.remove(); return; }
       link.href = href;
     });
+
+    // Drop any link list that ended up empty
+    document.querySelectorAll(".hero-links, .contact-links").forEach(function (ul) {
+      if (!ul.querySelector("li")) ul.remove();
+    });
   }
 
   /* ---------- Theme toggle ---------- */
@@ -103,7 +108,7 @@ const PROFILE = {
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 760) close();
+      if (window.innerWidth > 900) close();
     });
   }
 
